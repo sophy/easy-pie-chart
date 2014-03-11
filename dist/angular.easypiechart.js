@@ -1,5 +1,5 @@
 /**!
- * easyPieChart
+ * easyPieChart For By Sophy (https://github.com/sophy/easy-pie-chart) 
  * Lightweight plugin to render simple, animated and retina optimized pie charts
  *
  * @license 
@@ -317,6 +317,11 @@ var EasyPieChart = function(el, opts) {
 					options[i] = options[i].bind(this);
 				}
 			}
+		}
+
+		// check if bar color apply from data- atttribute of element (TODO: <div class="chart" data-bar-color="#00FFEE">...</div>)
+		if (el.getAttribute && el.getAttribute('data-bar-color')) {
+			options.barColor = el.getAttribute('data-bar-color');
 		}
 
 		// check for jQuery easing

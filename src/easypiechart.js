@@ -59,6 +59,11 @@ var EasyPieChart = function(el, opts) {
 			}
 		}
 
+		// check if bar color apply from data- atttribute of element (TODO: <div class="chart" data-bar-color="#00FFEE">...</div>)
+		if (el.getAttribute && el.getAttribute('data-bar-color')) {
+			options.barColor = el.getAttribute('data-bar-color');
+		}
+
 		// check for jQuery easing
 		if (typeof(options.easing) === 'string' && typeof(jQuery) !== 'undefined' && jQuery.isFunction(jQuery.easing[options.easing])) {
 			options.easing = jQuery.easing[options.easing];
